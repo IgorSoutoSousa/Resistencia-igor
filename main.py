@@ -1,63 +1,111 @@
 from Jedi import Jedi
 from Membro import Membro
 from Nave import Nave
+   
+print(72*'-')
+print("Bem-vindo; Esse é seu assistente de cadastro de Passaporte da Resistência")
+print("Prencha o formulário")
+print(72*'-')
 
-#Relatório Visto de entrada na resistência. 2021.5.3
-
-new_relatorio = {}
-new = []
-
-def relatorio_militante(chave, especie, cargo, idnave):
-    new.append(especie)
-    new.append(cargo)
-    new.append(idnave)
-    
-    new_relatorio[chave] = new.copy()
-    new.clear()
-    
-def exibir(chave):
-    print('Nome: ',chave)
-    print('Nota 1: ',new_relatorio[chave][0])
-    print('Nota 2: ',new_relatorio[chave][1])
-    print('Nota 3: ',new_relatorio[chave][2])
-    print('Media: {:.2f}'.format(new_relatorio[chave][3]))
-    print(15*'-')
-
-#construir uma função para exibir o relatório final
-#construir um lista com todos os dados
-
-
-while True:
-
+escolha = input("Deseja se cadastrar como novo Membro da Resistência ou vc é um Jedi? (membro) ou (jedi): ")
+if escolha.lower() == "membro":
     nome = input("Qual o seu nome?: ")
     especie = input("Qual sua espécie?: ")
     cargo = input("Qual seu Cargo?: ")
     nave = input("Você possui nave [s] ou [n]: ")
-    newmembro = Membro(nome, especie, cargo, nave)
-    if nave == "s":
+    
+    if nave.lower() == "s":
         idnave = input("Qual a identificação de sua nave?: ")
-        fabricante = input("Qual o fabricante de sua name?: ")
-        quant_trip = input("Qual a capacidade de tripulantes?: ")
+        fabricante = input("Qual o fabricante de sua nave?: ")
+        quant_trip = int(input("Qual a capacidade de tripulantes?: "))
         modelo = input("Qual o Modelo?: ")
         classe = input("Qual a Classe?: ")
         newnave = Nave(idnave, fabricante, quant_trip, modelo, classe)
+        newmembro = Membro(nome, especie, cargo, nave)
+        print("Chegamos ao final de seu questionário. CLICK ENTER para IMPRIMIR seu passaporte")
+        print(8*'-')
+        imprimir = input ("IMPRIMIR")  
+        print(8*'-')   
+        print(24*'-', "Passaporte Resistência", 24*'-')   
+        print(72*'-') 
+        print("⣿⣿⣿⡿⠛⠉⠉⠉⠙⠛⠻⢿⣿⣿⣿") 
+        print("⣿⣿⠛⠄⢀⣤⣤⣤⣤⣄⡀⠄⠿⣿⣿")
+        print("⣿⡿⠄⠄⢸⡿⠿⣿⣿⣿⣷⡀⠄⢿⣿")
+        print("⣿⣷⣤⡀⣿⣿⣴⣿⣷⣾⣿⣧⣠⣿⣿")
+        print("⣿⣿⣿⣶⠹⠿⠋⣉⡉⠛⠟⢠⣿⣿⣿")
+        print("⣿⣿⣿⣿⡀⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿")
+        print("⣿⣿⣿⣿⣷⣤⣀⣠⣀⣀⣴⣿⣿⣿⣿")
+        print("Nome:", newmembro.nome,"/ Espécie:", newmembro.especie, "/ Cargo: ", newmembro.cargo)
+        print("Registro Nave: ", newnave.idnave,"/ Fabricante:", newnave.fabricante, "/ Capacidade:", newnave.quant_trip, "/Classe: ", newnave.classe)
+        print(72*'-')    
     else:
-        jedi = input("vc é Jedi?[s] ou [n]: ")
-        if jedi == "s":
-            graduacao = input("Qual seu nível: Padawan, Cavaleiro, ou Mestre: ")
-            especie = input("Qual sua espécie?: ")
-            sabre = input("Qual a cor do seu sabre de Luz: ") 
-            newjedi = Jedi(nome, graduacao, especie, sabre)
+        newmembro = Membro(nome, especie, cargo, nave)
+        print("Chegamos ao final de seu questionário. CLICK ENTER para IMPRIMIR seu passaporte")
+        print(8*'-')
+        imprimir = input ("IMPRIMIR")  
+        print(8*'-')   
+        print(24*'-', "Passaporte Resistência", 24*'-')   
+        print(72*'-') 
+        print("⣿⣿⣿⡿⠛⠉⠉⠉⠙⠛⠻⢿⣿⣿⣿") 
+        print("⣿⣿⠛⠄⢀⣤⣤⣤⣤⣄⡀⠄⠿⣿⣿")
+        print("⣿⡿⠄⠄⢸⡿⠿⣿⣿⣿⣷⡀⠄⢿⣿")
+        print("⣿⣷⣤⡀⣿⣿⣴⣿⣷⣾⣿⣧⣠⣿⣿")
+        print("⣿⣿⣿⣶⠹⠿⠋⣉⡉⠛⠟⢠⣿⣿⣿")
+        print("⣿⣿⣿⣿⡀⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿")
+        print("⣿⣿⣿⣿⣷⣤⣀⣠⣀⣀⣴⣿⣿⣿⣿")
+        print("Nome:", newmembro.nome,"/ Espécie:", newmembro.especie, "/ Cargo: ", newmembro.cargo)
+        print(72*'-')    
+if escolha.lower() == "jedi":
+    nome = input("Qual o seu nome?: ")
+    especie = input("Qual sua espécie?: ")
+    graduacao = input("Qual seu nível: Padawan, Cavaleiro, ou Mestre: ")
+    sabre = input("Qual a cor do seu sabre de Luz: ") 
+    nave = input("Você possui nave [s] ou [n]: ")
+    if nave.lower() == "s":
+        idnave = input("Qual a identificação de sua nave?: ")
+        fabricante = input("Qual o fabricante de sua nave?: ")
+        quant_trip = int(input("Qual a capacidade de tripulantes?: "))
+        modelo = input("Qual o Modelo?: ")
+        classe = input("Qual a Classe?: ")
+        newnave = Nave(idnave, fabricante, quant_trip, modelo, classe)
+        newjedi = Jedi(nome, graduacao, especie, sabre)
+        print("Chegamos ao final de seu questionário. CLICK ENTER para IMPRIMIR seu passaporte")
+        print(8*'-')
+        imprimir = input ("IMPRIMIR")  
+        print(8*'-')   
+        print(24*'-', "Passaporte Resistência", 24*'-')   
+        print(72*'-') 
+        print("⣿⣿⣿⡿⠛⠉⠉⠉⠙⠛⠻⢿⣿⣿⣿") 
+        print("⣿⣿⠛⠄⢀⣤⣤⣤⣤⣄⡀⠄⠿⣿⣿")
+        print("⣿⡿⠄⠄⢸⡿⠿⣿⣿⣿⣷⡀⠄⢿⣿")
+        print("⣿⣷⣤⡀⣿⣿⣴⣿⣷⣾⣿⣧⣠⣿⣿")
+        print("⣿⣿⣿⣶⠹⠿⠋⣉⡉⠛⠟⢠⣿⣿⣿")
+        print("⣿⣿⣿⣿⡀⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿")
+        print("⣿⣿⣿⣿⣷⣤⣀⣠⣀⣀⣴⣿⣿⣿⣿")
+        print("Nome Jedi:", newjedi.nome,"/ Espécie:", newjedi.especie, "/ Graduação: ", newjedi.graduacao, "/ Sabre: ", newjedi.sabre)
+        print("Registro Nave: ", newnave.idnave,"/ Fabricante:", newnave.fabricante, "/ Capacidade:", newnave.quant_trip, "/Classe: ", newnave.classe)
+        print(72*'-')  
+    else:
+        newjedi = Jedi(nome, graduacao, especie, sabre)
+        print("Chegamos ao final de seu questionário. CLICK ENTER para IMPRIMIR seu passaporte")
+        print(8*'-')
+        imprimir = input ("IMPRIMIR")  
+        print(8*'-')   
+        print(24*'-', "Passaporte Resistência", 24*'-')   
+        print(72*'-') 
+        print("⣿⣿⣿⡿⠛⠉⠉⠉⠙⠛⠻⢿⣿⣿⣿") 
+        print("⣿⣿⠛⠄⢀⣤⣤⣤⣤⣄⡀⠄⠿⣿⣿")
+        print("⣿⡿⠄⠄⢸⡿⠿⣿⣿⣿⣷⡀⠄⢿⣿")
+        print("⣿⣷⣤⡀⣿⣿⣴⣿⣷⣾⣿⣧⣠⣿⣿")
+        print("⣿⣿⣿⣶⠹⠿⠋⣉⡉⠛⠟⢠⣿⣿⣿")
+        print("⣿⣿⣿⣿⡀⠄⠄⠄⠄⠄⠄⣴⣿⣿⣿")
+        print("⣿⣿⣿⣿⣷⣤⣀⣠⣀⣀⣴⣿⣿⣿⣿")
+        print("Nome Jedi:", newjedi.nome,"/ Espécie:", newjedi.especie, "/ Graduação: ", newjedi.graduacao, "/ Sabre: ", newjedi.sabre)
+        print(72*'-')  
+else:
+    print("Opção invalida")       
+    
+
+     
    
-    print("Chegamos ao final de seu questionário. Click enter para imprimir seu passaporte")
-    print(15*'-')
-    imprimir = input ("imprimir")  
-    print(15*'-')   
-    if imprimir == '':
-        break
-           
-relatorio_militante(nome, especie, cargo, idnave)
-        
-for new in new_relatorio:
-    exibir(new)
-       
+    
